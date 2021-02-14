@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3000;
 
 // require the models folder
-//const db = require("./models");
+const db = require("./models");
 
 // call express by using the app variable
 const app = express();
@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.static("public"));
 // Import routes folder
 app.use(require("./routes/htmlRoutes"));
-
+app.use(require("./routes/apiRoutes"));
 // Connects to and create the Database
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
     useNewUrlParser: true,

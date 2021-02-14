@@ -1,7 +1,10 @@
+// Require Mongoose
 const mongoose = require("mongoose");
 
+// Save mongoose's ability the create a schema in a variable 
 const Schema = mongoose.Schema;
 
+// Schema for workouts(documents)
 const workoutSchema = new Schema({
   day: {
     type: Date,
@@ -39,4 +42,8 @@ const workoutSchema = new Schema({
   ],
 });
 
+// Variable that holds the logic to create a new Document from the workoutSchema in the Workout Collection
+const Workout = mongoose.model("Workout", workoutSchema);
 
+// Export the ability to create a new Document
+module.exports = Workout;
