@@ -38,6 +38,10 @@ const workoutSchema = new Schema({
         type: Number,
         //required: "Number of sets required",
       },
+      distance: {
+        type: Number,
+        //required: "Number of sets required",
+      },
     },
   ],
 });
