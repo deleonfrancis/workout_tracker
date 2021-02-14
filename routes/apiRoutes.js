@@ -2,9 +2,6 @@ const router = require("express").Router();
 const path = require("path");
 const db = require("../models");
 
-// Get Route
-// Look up the Aggregate function for get routes
-
 router.get("/api/workouts", (req, res) => {
   db.Workout.find({})
     .then((dbWorkout) => {
@@ -16,7 +13,9 @@ router.get("/api/workouts", (req, res) => {
 });
 
 router.put("/api/workouts/:id", (req, res) => {
-  db.Workout.findOneAndUpdate(
+  console.log(req.body);
+
+    db.Workout.findOneAndUpdate(
     {
       _id: req.params.id,
     },
@@ -37,23 +36,26 @@ router.put("/api/workouts/:id", (req, res) => {
     });
 });
 
-router.post("/api/workouts", (req, res) =>{
-    db.Workout.create({})
+router.post("/api/workouts", (req, res) => {
+  db.Workout.create({})
     .then((dbWorkout) => {
-        res.json(dbWorkout);
-      })
-      .catch((err) => {
-        res.json(err);
-      });
-})
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
-router.get("/api/workouts/range", (req, res) =>{
-    db.Workout.find({})
+router.get("/api/workouts/range", (req, res) => {
+  db.Workout.find({})
+    .sort({ day: -1 })
+    .limit(7)
     .then((dbWorkout) => {
-        res.json(dbWorkout);
-      })
-      .catch((err) => {
-        res.json(err);
-      });
-})
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 module.exports = router;
