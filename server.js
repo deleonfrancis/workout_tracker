@@ -24,9 +24,10 @@ app.use(express.static("public"));
 app.use(require("./routes/htmlRoutes"));
 
 // Connects to and create the Database
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populatedb", {
-  useNewUrlParser: true,
-});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+    useNewUrlParser: true,
+    useFindAndModify: false
+  });
 
 // Starts the server
 app.listen(PORT, () => {
