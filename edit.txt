@@ -1,0 +1,1 @@
+heroku config:set MONGODB_URI="mongodb+srv://xavier:QNRrhEezF9ekC90b@workout-tracker.80q6m.mongodb.net/workout?retryWrites=true&w=majority"
