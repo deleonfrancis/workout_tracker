@@ -38,7 +38,18 @@ const API = {
   async getWorkoutsInRange() {
     const res = await fetch(`/api/workouts/range`);
     const json = await res.json();
-
+    /*
+      const updated = json.map(record => {
+      const totalDuration = record.exercises.reduce((acc, prev) => {
+        return (acc || 0) + prev.duration;
+      },0)
+      return {...record, totalDuration}
+    })
+    console.log(updated);
+    return updated;
+  },
+    */
+    console.log(json);
     return json;
   },
 };
